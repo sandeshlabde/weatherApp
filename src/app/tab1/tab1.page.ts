@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from '../commonService/common.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,28 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private comService:CommonService) {this.getCityData()}
+  ngOnInit(){
+    try {
 
+      
+    } catch (error) {
+      
+    }
+  }
+  getCityData(){
+    try {
+      let param={
+        type:'forecast/daily',
+        city:"Pune"
+      }
+this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
+  console.log(res)
+})
+      
+    } catch (error) {
+      
+    }
+  }
 }
+
