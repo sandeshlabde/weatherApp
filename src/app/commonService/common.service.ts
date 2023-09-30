@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable, catchError, of, switchMap, throwError } from 'rxjs';
-import { FormControl } from '@angular/forms';
+ 
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class CommonService {
   handleError(error:Error):any {
     try {
       const errorMessage =
-        "We are facing some issue while saving/getting data. Please try after sometime.";
+        "We are facing some issue while getting data. Please  check City name or internet connection.";
       
       alert(errorMessage)
 
