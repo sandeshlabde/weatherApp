@@ -31,8 +31,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+            "styles": [ 
               "src/theme/variables.scss",
               "src/global.scss"
             ],
@@ -115,8 +114,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+            "styles": [ 
               "src/theme/variables.scss",
               "src/global.scss"
             ],
