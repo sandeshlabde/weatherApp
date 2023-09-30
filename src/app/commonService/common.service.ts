@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, catchError, of, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, switchMap, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -45,5 +45,9 @@ export class CommonService {
     } catch (error) {
       console.error(error);
     }
+  }
+  title$: BehaviorSubject<any> = new BehaviorSubject<string>('');
+  updateTitle(title: string) {
+    this.title$.next(title);
   }
 }

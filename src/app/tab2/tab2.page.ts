@@ -7,9 +7,19 @@ import { CommonService } from '../commonService/common.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  data: any;
 
   constructor(private comService:CommonService) {
-    this.getCityData()
+    
+   
+  }
+  ionViewWillEnter(){
+    try {
+      this.comService.updateTitle('Weather Forcast')
+      this.getCityData()
+    } catch (error) {
+      
+    }
   }
   getCityData(){
     try {
@@ -17,6 +27,7 @@ export class Tab2Page {
         city:"Pune"
       }
 this.comService.getForcastWeatherData(param).subscribe((res:any)=>{
+  this.data=res.list
   console.log(res)
 })
       

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from '../commonService/common.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
+  header: string='';
+ 
+  constructor(private comService:CommonService) {
+    this.comService.title$.subscribe((res:string)=>{
+      this.header=res
+    })
+  }
 
 }

@@ -1,13 +1,15 @@
 #container {
-  text-align: center;
+  text-align: start;
 
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 9%; 
 }
-
+#container .example-card{
+margin: 5px;
+color: black;
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;

@@ -1,12 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     {{header}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab1" href="/tabs/tab1">
+    <ion-tab-button tab="currentWeather" href="/tabs/currentWeather">
       <ion-icon aria-hidden="true" name="triangle"></ion-icon>
-      <ion-label>Weather</ion-label>
+      <ion-label>Current Weather</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" href="/tabs/tab2">
+    <ion-tab-button tab="weatherForcast" href="/tabs/weatherForcast">
       <ion-icon aria-hidden="true" name="ellipse"></ion-icon>
       <ion-label>Weather Forcast</ion-label>
     </ion-tab-button>

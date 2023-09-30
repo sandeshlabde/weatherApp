@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonService } from '../commonService/common.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-tab1',
@@ -7,11 +8,25 @@ import { CommonService } from '../commonService/common.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor(private comService:CommonService) {this.getCityData()}
+  cityName = new FormControl('');
+  data: any;
+  constructor(private comService:CommonService) {
+    
+   
+    
+  }
+  ionViewWillEnter(){
+    try {
+      this.getCityData()
+      this.comService.updateTitle('Current Weather')
+    } catch (error) {
+      
+    }
+   
+  }
   ngOnInit(){
     try {
-
+ 
       
     } catch (error) {
       
@@ -24,7 +39,10 @@ export class Tab1Page {
         city:"Pune"
       }
 this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
-  console.log(res)
+  let arr=new Array()
+   arr.push(res)
+   this.data=arr
+
 })
       
     } catch (error) {
