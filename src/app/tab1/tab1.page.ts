@@ -38,7 +38,7 @@ export class Tab1Page {
         url:`weather?q=${city}`
       }
 this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
-  console.log(res)
+   
   let arr=new Array()
    arr.push(res)
    this.data=arr
@@ -51,14 +51,14 @@ this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
   }
   selectedLocation(list:any){
     try {
-    console.log(list.coords.latitude)
+     
    
       let param={
        
          url:`weather?lat=${list.coords.latitude}&lon=${list.coords.longitude}`
       }
 this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
-  console.log(res)
+  
   let arr=new Array()
    arr.push(res)
    this.data=arr
