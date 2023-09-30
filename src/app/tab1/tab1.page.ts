@@ -16,8 +16,7 @@ export class Tab1Page {
     
   }
   ionViewWillEnter(){
-    try {
-      this.getCityData()
+    try { 
       this.comService.updateTitle('Current Weather')
     } catch (error) {
       
@@ -32,19 +31,39 @@ export class Tab1Page {
       
     }
   }
-  getCityData(){
+  selectedCity(city:string){
     try {
       let param={
-        type:'forecast/daily',
-        city:"Pune"
+       
+        url:`weather?q=${city}`
       }
 this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
+  console.log(res)
   let arr=new Array()
    arr.push(res)
    this.data=arr
 
 })
       
+    } catch (error) {
+      
+    }
+  }
+  selectedLocation(list:any){
+    try {
+    console.log(list.coords.latitude)
+   
+      let param={
+       
+         url:`weather?lat=${list.coords.latitude}&lon=${list.coords.longitude}`
+      }
+this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
+  console.log(res)
+  let arr=new Array()
+   arr.push(res)
+   this.data=arr
+
+})
     } catch (error) {
       
     }

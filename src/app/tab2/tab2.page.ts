@@ -16,21 +16,42 @@ export class Tab2Page {
   ionViewWillEnter(){
     try {
       this.comService.updateTitle('Weather Forcast')
-      this.getCityData()
+      
     } catch (error) {
       
     }
   }
-  getCityData(){
+  
+  selectedCity(city:string){
     try {
-      let param={ 
-        city:"Pune"
+      let param={
+       
+        url:`forecast?q=${city}&cnt=5`  
       }
-this.comService.getForcastWeatherData(param).subscribe((res:any)=>{
+this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
+  this.comService.cityName=res.city.name
   this.data=res.list
-  console.log(res)
+
 })
       
+    } catch (error) {
+      
+    }
+  }
+  selectedLocation(list:any){
+    try {
+   
+   
+      let param={
+       
+         url:`forecast?lat=${list.coords.latitude}&lon=${list.coords.longitude}&cnt=5`
+      }
+this.comService.getCurrentWeatherData(param).subscribe((res:any)=>{
+  
+  this.comService.cityName=res.city.name
+  this.data=res.list
+
+})
     } catch (error) {
       
     }

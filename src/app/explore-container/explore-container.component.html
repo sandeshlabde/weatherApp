@@ -1,9 +1,36 @@
 <div id="container">
+  <ion-row  >
+    <ion-col size="8">
+      <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>City Name</mat-label>
+        <input type="text" matInput [formControl]="cityName" placeholder="Ex. Pune"  >
+         
+        <mat-error *ngIf="cityName.hasError('required')">
+          City nmae is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    </ion-col>
+    <ion-col size="4">
+      <ion-button (click)="getLocation()">
+        <ion-icon name="location-outline"></ion-icon>
+      </ion-button> 
+    </ion-col>
+    <ion-col size="4">
+      <ion-button (click)="getCityData()">  Show
+      </ion-button>
+       
+    </ion-col>
+  </ion-row>
+ 
   <mat-card class="example-card" *ngFor="let list of data">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>Temprature : {{list.main.temp}}</mat-card-title>
-        <mat-card-subtitle>Description : {{list.weather[0].description}}</mat-card-subtitle>
+        <mat-card-title>  {{list.name?list.name:forcastCity}}  </mat-card-title>
+        <mat-card-subtitle>Temprature : {{list.main.temp}} Kelvin</mat-card-subtitle>
+        <mat-card-subtitle>Description : {{list.weather[0].description}}  </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="list.dt_txt">Date & Time : {{list.dt_txt |date: 'EEEE, MMMM d y h:mm a '}}  </mat-card-subtitle>
         <img mat-card-sm-image src="http://openweathermap.org/img/w/{{list.weather[0].icon}}.png" >
       </mat-card-title-group>
     </mat-card-header>
